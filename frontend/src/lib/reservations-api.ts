@@ -1,6 +1,4 @@
-const API_URL =
-  import.meta.env.VITE_API_URL ||
-  "http://localhost:8080";
+const API_URL ="https://inventory-reservation-system-eaas.onrender.com"
 
 
 function createIdempotencyKey() {
