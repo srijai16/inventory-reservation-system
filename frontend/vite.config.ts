@@ -18,7 +18,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://inventory-reservation-system-eaas.onrender.com",
+        target: "http://localhost:8080",
         changeOrigin: true,
       },
     },
