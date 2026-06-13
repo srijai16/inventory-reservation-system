@@ -86,9 +86,14 @@ export default function ReservationPage() {
   }, []);
 
   const msLeft = useMemo(() => {
-    if (!reservation) return 0;
-    return Math.max(0, new Date(reservation.expiresAt).getTime() - now);
-  }, [reservation, now]);
+  if (!reservation) return 0;
+
+  const expires = new Date(
+    reservation.expiresAt + "Z"
+  ).getTime();
+
+  return Math.max(0, expires - now);
+}, [reservation, now]);
 
   useEffect(() => {
     if (reservation?.status === "PENDING" && msLeft === 0) refresh();
