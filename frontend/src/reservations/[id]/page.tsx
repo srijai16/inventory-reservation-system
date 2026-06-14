@@ -94,7 +94,7 @@ export default function ReservationPage() {
 
   const expires = new Date(
     reservation.expiresAt + "Z"
-  ).getTime();
+  ).getTime()-((5.5 * 60 * 60 * 1000));
 
   return Math.max(0, expires - now);
   }, [reservation, now]);
@@ -104,7 +104,7 @@ export default function ReservationPage() {
   }, [msLeft]); // eslint-disable-line
 
   const seconds = Math.ceil(msLeft / 1000);
-  const pct     = reservation ? Math.max(0, Math.min(100, (msLeft / 60_000) * 100)) : 0;
+  const pct     = reservation ? Math.max(0, Math.min(100, (msLeft / 30_000) * 100)) : 0;
   const isDanger = seconds <= 10;
 
   // ── Actions ──
